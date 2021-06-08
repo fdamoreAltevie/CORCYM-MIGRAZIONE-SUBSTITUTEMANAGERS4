@@ -1,0 +1,83 @@
+<mvc:View displayBlock="true" controllerName="com.livanova.substitutemanager.controller.Detail" height="100%" xmlns="sap.uxap"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:m="sap.m" xmlns:f="sap.f" xmlns:form="sap.ui.layout.form" xmlns:u="sap.ui.unified"
+	xmlns:core="sap.ui.core" xmlns:customControls="com.livanova.substitutemanager.CustomControls">
+	<ObjectPageLayout id="ObjectPageLayout" showTitleInHeaderContent="true" alwaysShowContentHeader="false" preserveHeaderStateOnScroll="false"
+		headerContentPinnable="true" isChildPage="true" upperCaseAnchorBar="false" visible="{= !${viewModel>/add}}">
+		<headerTitle>
+			<ObjectPageDynamicHeaderTitle>
+				<expandedHeading>
+					<m:Title text="{substitutesModel>Name}" wrapping="true" class="sapUiTinyMarginEnd"/>
+				</expandedHeading>
+				<snappedHeading>
+					<m:Title text="{substitutesModel>Name}" wrapping="true" class="sapUiTinyMarginEnd"/>
+				</snappedHeading>
+				<navigationActions>
+					<m:OverflowToolbarButton type="Transparent" icon="sap-icon://full-screen" press="handleFullScreen" tooltip="Enter Full Screen Mode"
+						visible="{= ${/actionButtonsInfo/midColumn/fullScreen} !== null }"/>
+					<m:OverflowToolbarButton type="Transparent" icon="sap-icon://exit-full-screen" press="handleExitFullScreen" tooltip="Exit Full Screen Mode"
+						visible="{= ${/actionButtonsInfo/midColumn/exitFullScreen} !== null }"/>
+					<m:OverflowToolbarButton type="Transparent" icon="sap-icon://decline" press="handleClose" tooltip="Close column"
+						visible="{= ${/actionButtonsInfo/midColumn/closeColumn} !== null }"/>
+				</navigationActions>
+				<!--<actions>
+					<m:OverflowToolbarButton tooltip="{i18n>edit}" icon="sap-icon://edit" type="Emphasized" press="onEditDetail"
+						visible="{= !${viewModel>/editDetail} &amp;&amp; ${substitutesModel>ValidTo} >= ${viewModel>/today}}"/>
+					<m:OverflowToolbarButton tooltip="{i18n>save}" icon="sap-icon://save" type="Emphasized" press="onSaveDetail"
+						visible="{viewModel>/editDetail}"/>
+					<m:OverflowToolbarButton tooltip="{i18n>undo}" icon="sap-icon://undo" type="Emphasized" press="onUndoDetail"
+						visible="{viewModel>/editDetail}"/>
+					<m:OverflowToolbarButton tooltip="{i18n>delete}" icon="sap-icon://delete" type="Emphasized" press="onDeleteDetail"
+						visible="{= ${viewModel>/editDetail} &amp;&amp; ${substitutesModel>ValidFrom} > ${viewModel>/today}}"/>
+				</actions>-->
+			</ObjectPageDynamicHeaderTitle>
+		</headerTitle>
+		<headerContent>
+			<m:VBox>
+				<m:Toolbar>
+					<m:ToolbarSpacer/>
+					<m:OverflowToolbarButton tooltip="{i18n>edit}" icon="sap-icon://edit" type="Emphasized" press="onEditDetail"
+						visible="{= !${viewModel>/editDetail} &amp;&amp; ${substitutesModel>ValidTo} >= ${viewModel>/today}}"/>
+					<m:OverflowToolbarButton tooltip="{i18n>save}" icon="sap-icon://save" type="Emphasized" press="onSaveDetail"
+						visible="{viewModel>/editDetail}"/>
+					<m:OverflowToolbarButton tooltip="{i18n>undo}" icon="sap-icon://undo" type="Emphasized" press="onUndoDetail"
+						visible="{viewModel>/editDetail}"/>
+					<m:OverflowToolbarButton tooltip="{i18n>delete}" icon="sap-icon://delete" type="Emphasized" press="onDeleteDetail"
+						visible="{= ${viewModel>/editDetail} &amp;&amp; ${substitutesModel>ValidFrom} > ${viewModel>/today}}"/>
+				</m:Toolbar>
+				<form:SimpleForm editable="true" layout="GridLayout" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false"
+					emptySpanXL="3" emptySpanL="3" emptySpanM="3" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
+					<form:content>
+						<!--<m:Label text="{i18n>id}"/>-->
+						<!--<m:Text text="{substitutesModel>Id}"/>-->
+						<m:Label text="{i18n>validFrom}"/>
+						<m:VBox>
+							<m:Text text="{ path: 'substitutesModel>ValidFrom', formatter: '.formatter.formatDate' }"
+								visible="{ parts: [{path: 'viewModel>/editDetail'},{path: 'substitutesModel>ValidFrom'}, {value:'Text'}], formatter: '.formatter.visibilityDetailEdit'}"/>
+							<m:DatePicker id="datePicker1"
+								visible="{ parts: [{path: 'viewModel>/editDetail'},{path: 'substitutesModel>ValidFrom'}, {value:'Date'}], formatter: '.formatter.visibilityDetailEdit'}"
+								dateValue="{path:'substitutesEditModel>/ValidFrom'}" displayFormat="{viewModel>/dateFormat}" change="setDelimitedDates"
+								valueFormat="{viewModel>/dateFormat}" class="disabledp"/>
+						</m:VBox>
+						<m:Label text="{i18n>validTo}"/>
+						<m:VBox>
+							<m:Text text="{ path: 'substitutesModel>ValidTo', formatter: '.formatter.formatDate' }" visible="{= !${viewModel>/editDetail}}"/>
+							<m:DatePicker id="datePicker2" visible="{viewModel>/editDetail}" dateValue="{path:'substitutesEditModel>/ValidTo'}"
+								displayFormat="{viewModel>/dateFormat}" change="setDelimitedDates" valueFormat="{viewModel>/dateFormat}" class="disabledp"/>
+						</m:VBox>
+					</form:content>
+				</form:SimpleForm>
+			</m:VBox>
+		</headerContent>
+		<sections>
+			<ObjectPageSection title="{i18n>approvedWf}">
+				<subSections>
+					<ObjectPageSubSection id="subSectionWorkflow">
+						<blocks>
+							<m:VBox id="workflowVbox" height="100%"></m:VBox>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		</sections>
+	</ObjectPageLayout>
+</mvc:View>

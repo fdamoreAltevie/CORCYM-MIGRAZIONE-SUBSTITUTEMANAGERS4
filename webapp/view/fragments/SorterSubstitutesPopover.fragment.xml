@@ -1,0 +1,36 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<Popover class="sapUiContentPadding" placement="Bottom" showHeader="false">
+		<content>
+			<VBox>
+				<Toolbar>
+					<Label text="{i18n>name}" width="45%"/>
+					<ToolbarSpacer/>
+					<Button icon="sap-icon://sort-ascending" press="sortTable" type="Emphasized" app:path="Name" app:descending="false"/>
+					<ToolbarSpacer/>
+					<Button icon="sap-icon://sort-descending" press="sortTable" type="Emphasized" app:path="Name" app:descending="true"/>
+				</Toolbar>
+				<Toolbar>
+					<Label text="{i18n>id}" width="45%"/>
+					<ToolbarSpacer/>
+					<Button icon="sap-icon://sort-ascending" press="sortTable" type="Emphasized" app:path="Id" app:descending="false"/>
+					<ToolbarSpacer/>
+					<Button icon="sap-icon://sort-descending" press="sortTable" type="Emphasized" app:path="Id" app:descending="true"/>
+				</Toolbar>
+				<Toolbar>
+					<Label text="{i18n>begda}" width="45%"/>
+					<ToolbarSpacer/>
+					<Button icon="sap-icon://sort-ascending" press="sortTable" type="Emphasized" app:path="ValidFrom" app:descending="false"/>
+					<ToolbarSpacer/>
+					<Button icon="sap-icon://sort-descending" press="sortTable" type="Emphasized" app:path="ValidFrom" app:descending="true"/>
+				</Toolbar>
+				<Toolbar>
+					<Label text="{i18n>endda}" width="45%"/>
+					<ToolbarSpacer/>
+					<Button icon="sap-icon://sort-ascending" press="sortTable" type="Emphasized" app:path="ValidTo" app:descending="false"/>
+					<ToolbarSpacer/>
+					<Button icon="sap-icon://sort-descending" press="sortTable" type="Emphasized" app:path="ValidTo" app:descending="true"/>
+				</Toolbar>
+			</VBox>
+		</content>
+	</Popover>
+</core:FragmentDefinition>

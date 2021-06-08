@@ -1,0 +1,15 @@
+<mvc:View controllerName="com.livanova.substitutemanager.controller.App" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m"
+	height="100%" xmlns:f="sap.f" xmlns:u="sap.ui.unified">
+	<Shell>
+		<Page showHeader="{device>/system/phone}">
+			<headerContent>
+				<Bar>
+					<contentRight>
+						<Image src="{rootPath>/path}/images/logo.png" width="25%"/>
+					</contentRight>
+				</Bar>
+			</headerContent>
+			<f:FlexibleColumnLayout id="fcl" stateChange="onStateChanged" layout="{/layout}" backgroundDesign="Translucent"/>
+		</Page>
+	</Shell>
+</mvc:View>

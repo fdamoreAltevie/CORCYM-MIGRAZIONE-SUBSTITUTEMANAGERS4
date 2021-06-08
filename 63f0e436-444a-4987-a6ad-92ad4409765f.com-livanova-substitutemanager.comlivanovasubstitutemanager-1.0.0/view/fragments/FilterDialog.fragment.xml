@@ -1,0 +1,29 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<ViewSettingsDialog confirm="onFiltersApply" cancel="onFilterCancel" resetFilters=".onChangeFilterDate(false);onFilterReset"
+		filterSearchOperator="Contains">
+		<filterItems>
+			<ViewSettingsFilterItem text="{i18n>substitute}" key="Id"
+				items="{ path : 'viewModel>/filterSubList', sorter : { path : 'Name', descending : false } }">
+				<items>
+					<ViewSettingsItem text="{viewModel>Name}" key="{viewModel>Id}"/>
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsCustomItem text="{i18n>validity}" key="validity">
+				<customControl>
+					<VBox class="sapUiSmallMargin">
+						<f:SimpleForm layout="GridLayout" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" emptySpanXL="4" emptySpanL="4"
+							emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" editable="true">
+							<f:content>
+								<Label text="{i18n>from}"/>
+								<DatePicker dateValue="{path:'viewModel>/startDateSubList'}" displayFormat="{viewModel>/dateFormat}" change=".onChangeFilterDate(true)"
+									maxDate="{viewModel>/today}"/>
+								<!--<Label text="{i18n>to}"/>
+								<DatePicker dateValue="{path:'viewModel>/endDateSubList'}" displayFormat="{viewModel>/dateFormat}" change=".onChangeFilterDate(true)"/>-->
+							</f:content>
+						</f:SimpleForm>
+					</VBox>
+				</customControl>
+			</ViewSettingsCustomItem>
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

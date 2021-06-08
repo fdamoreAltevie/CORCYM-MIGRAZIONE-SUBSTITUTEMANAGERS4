@@ -1,0 +1,29 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<Popover class="sapUiContentPadding" placement="Bottom" showHeader="false">
+		<content>
+			<VBox>
+				<Toolbar>
+					<Label text="{i18n>approver}" width="60%"/>
+					<ToolbarSpacer/>
+					<Button icon="sap-icon://sort-ascending" press="sortTableControl" type="Emphasized" app:path="ApproverName" app:descending="false"/>
+					<ToolbarSpacer/>
+					<Button icon="sap-icon://sort-descending" press="sortTableControl" type="Emphasized" app:path="ApproverName" app:descending="true"/>
+				</Toolbar>
+				<Toolbar>
+					<Label text="{i18n>workflow}" width="60%"/>
+					<ToolbarSpacer/>
+					<Button icon="sap-icon://sort-ascending" press="sortTableControl" type="Emphasized" app:path="Description" app:descending="false"/>
+					<ToolbarSpacer/>
+					<Button icon="sap-icon://sort-descending" press="sortTableControl" type="Emphasized" app:path="Description" app:descending="true"/>
+				</Toolbar>
+				<Toolbar>
+					<Label text="{i18n>approvalDate}" width="60%"/>
+					<ToolbarSpacer/>
+					<Button icon="sap-icon://sort-ascending" press="sortTableControl" type="Emphasized" app:path="ApprovalDate" app:descending="false"/>
+					<ToolbarSpacer/>
+					<Button icon="sap-icon://sort-descending" press="sortTableControl" type="Emphasized" app:path="ApprovalDate" app:descending="true"/>
+				</Toolbar>
+			</VBox>
+		</content>
+	</Popover>
+</core:FragmentDefinition>

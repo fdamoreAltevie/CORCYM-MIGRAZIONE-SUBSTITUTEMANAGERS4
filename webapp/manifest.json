@@ -1,0 +1,155 @@
+{
+    "_version": "1.32.0",
+    "sap.app": {
+        "id": "substitutemanager",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "ach": "ach",
+        "dataSources": {
+            "ZAPPROVERS_MANAGER_SRV": {
+                "uri": "/sap/opu/odata/sap/ZAPPROVERS_MANAGER_SRV",
+                "type": "OData",
+                "settings": {
+                    "localUri": "localService/metadata.xml"
+                }
+            }
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "substitutemanager-inbound": {
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    },
+                    "semanticObject": "substitutemanager",
+                    "action": "display",
+                    "title": "Substitute Manager",
+                    "subTitle": "",
+                    "icon": ""
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "sap-icon://task",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "services": {
+			"ShellUIService": {
+				"factoryName": "sap.ushell.ui5service.ShellUIService"
+			}
+		},
+        "flexEnabled": false,
+        
+        "rootView": {
+			"viewName": "substitutemanager.view.App",
+			"type": "XML",
+			"async": false,
+			"id": "fcl"
+		},
+        "dependencies": {
+            "minUI5Version": "1.66.0",
+            "libs": {
+                "sap.ui.core": {},
+                "sap.m": {},
+                "sap.ui.layout": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "substitutemanager.i18n.i18n"
+                }
+            },
+            "approversMgmtModel": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "ZAPPROVERS_MANAGER_SRV",
+				"preload": true
+			},
+            "": {
+                "dataSource": "mainService",
+                "preload": true
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "substitutemanager.view",
+				"controlId": "fcl",
+				"transition": "slide",
+                "bypassed": {}
+
+            },
+            
+            "routes": [
+				{
+					"pattern": ":layout:",
+					"name": "master",
+					"target": [
+						"master"
+					]
+				},
+				{
+					"pattern": "detail/{substitute}/{layout}",
+					"name": "detail",
+					"target": [
+						"master",
+						"detail"
+					]
+				}
+			],
+            "targets": {
+				"master": {
+					"viewName": "Master",
+					"controlAggregation": "beginColumnPages"
+				},
+				"detail": {
+					"viewName": "Detail",
+					"controlAggregation": "midColumnPages"
+				}
+			}
+        }
+    },
+    "sap.cloud": {
+        "public": true,
+        "service": "substitutemanager"
+    }
+}

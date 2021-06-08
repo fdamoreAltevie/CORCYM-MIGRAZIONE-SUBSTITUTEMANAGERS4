@@ -1,0 +1,110 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" height="100%" xmlns="sap.m" xmlns:f="sap.f" xmlns:form="sap.ui.layout.form"
+	controllerName="com.livanova.substitutemanager.controller.Master" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:customControls="com.livanova.substitutemanager.CustomControls">
+	<f:DynamicPage id="dynamicPageId" toggleHeaderOnTitleClick="false">
+		<f:content>
+			<IconTabBar id="idIconTabBar" select="onChangeView" class="sapUiResponsiveContentPadding iconTabText" expanded="true" expandable="false"
+				headerBackgroundDesign="Solid" stretchContentHeight="true">
+				<items>
+					<IconTabFilter icon="sap-icon://add-contact" iconColor="Default" text="{i18n>addFormTitle}" key="addForm">
+						<VBox width="100%">
+							<form:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="6" labelSpanL="6" labelSpanM="6" labelSpanS="12"
+								adjustLabelSpan="false" emptySpanXL="2" emptySpanL="2" emptySpanM="2" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1"
+								singleContainerFullSize="false">
+								<form:content>
+									<Label text="{i18n>name}"/>
+									<Input showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onOpenApproversList" placeholder="{i18n>selectSubstitute}"
+										suggestionItems="{ path: 'approversListModel>/', sorter: { path: 'Name' } }" selectedKey="{substitutesAddModel>/Id}">
+										<core:Item key="{approversListModel>Id}" text="{approversListModel>Name} ({approversListModel>Id})"/>
+									</Input>
+									<Label text="{i18n>validity}"/>
+									<DateRangeSelection id="dateRange" dateValue="{path:'substitutesAddModel>/ValidFrom',formatOptions: {UTC: false}}"
+										secondDateValue="{substitutesAddModel>/ValidTo}" showFooter="true" change="handleChangeDate" displayFormat="{viewModel>/dateFormat}"
+										modelContextChange=".onCreateSpecialDates('',['dateRange'])" class="disabledp"/>
+									<Label text=""/>
+									<HBox width="100%" justifyContent="End">
+										<Button text="{i18n>save}" icon="sap-icon://save" type="Emphasized" press="onSaveAddDetail"/>
+									</HBox>
+								</form:content>
+							</form:SimpleForm>
+							<Table id="activeSubstituteTable" inset="false" items="{ path: 'activeSubstituteModel>/'}"
+								class="sapFDynamicPageAlignContent sapUiTinyMargin sapUiMediumMarginTop" width="auto">
+								<headerToolbar>
+									<Toolbar>
+										<Title text="{i18n>activeSub}"/>
+										<ToolbarSpacer/>
+										<Button visible="false" icon="sap-icon://stop" type="Transparent" press="onCancelActiveSubstitute" text="{i18n>cancelActiveSubstitute}"
+											enabled="{ path: 'activeSubstituteModel>/', formatter: '.formatter.enableTerminateSub' }"/>
+									</Toolbar>
+								</headerToolbar>
+								<columns>
+									<Column >
+										<Text text="{i18n>name}"/>
+									</Column>
+									<Column hAlign="End">
+										<Text text="{i18n>validity}"/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem type="Navigation" press="onListItemPress">
+										<cells>
+											<VBox class="sapUiTinyMarginTop sapUiTinyMarginBottom">
+												<ObjectIdentifier title="{activeSubstituteModel>Name}" text="({activeSubstituteModel>Id})"/>
+											</VBox>
+											<ObjectStatus
+												text="{ path: 'activeSubstituteModel>ValidFrom', formatter: '.formatter.formatDate' } - { path: 'activeSubstituteModel>ValidTo', formatter: '.formatter.formatDate' }"
+												state="{ parts: [{path: 'activeSubstituteModel>ValidFrom'}, {path: 'activeSubstituteModel>ValidTo'}], formatter: '.formatter.dateValidityState'}"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</VBox>
+					</IconTabFilter>
+					<IconTabSeparator/>
+					<IconTabFilter icon="sap-icon://list" iconColor="Default" text="{i18n>subListTitle}" key="substitutesList">
+						<ScrollContainer vertical="true" horizontal="false" height="100%">
+							<Table id="substitutesTable" inset="false" items="{ path: 'substitutesModel>/'}" class="sapFDynamicPageAlignContent sapUiTinyMargin"
+								width="auto">
+								<headerToolbar>
+									<Toolbar>
+										<ToolbarSpacer/>
+										<SearchField search="onSearch" width="{= ${/layout} === 'TwoColumnsMidExpanded' || ${device>/system/phone} ? '50%' : 'auto'}"
+											placeholder="{= ${/layout} === 'TwoColumnsMidExpanded' || ${device>/system/phone} ? ${i18n>searchSubListCompressed} : ${i18n>searchSubList}}"/>
+										<Button icon="sap-icon://refresh" type="Transparent" press="onRefresh"/>
+										<Button icon="sap-icon://sort" type="Transparent" press="onSort"/>
+										<Button icon="sap-icon://filter" type="Transparent" press="onFilter"/>
+										<Button icon="sap-icon://clear-filter" type="Transparent" press=".onChangeFilterDate(false);onFilterReset"
+											visible="{viewModel>/filterInserted}"/>
+									</Toolbar>
+								</headerToolbar>
+								<columns>
+									<Column >
+										<Text text="{i18n>name}"/>
+									</Column>
+									<Column hAlign="End">
+										<Text text="{i18n>validity}"/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem type="Navigation" press="onListItemPress">
+										<cells>
+											<VBox class="sapUiTinyMarginTop sapUiTinyMarginBottom">
+												<ObjectIdentifier title="{substitutesModel>Name}" text="({substitutesModel>Id})"/>
+											</VBox>
+											<ObjectStatus
+												text="{ path: 'substitutesModel>ValidFrom', formatter: '.formatter.formatDate' } - { path: 'substitutesModel>ValidTo', formatter: '.formatter.formatDate' }"
+												state="{ parts: [{path: 'substitutesModel>ValidFrom'}, {path: 'substitutesModel>ValidTo'}], formatter: '.formatter.dateValidityState'}"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</ScrollContainer>
+					</IconTabFilter>
+					<IconTabFilter icon="sap-icon://history" iconColor="Default" text="{i18n>workflowListTitle}" key="workflowList">
+						<customControls:WorkflowListControl id="workflowHistory" controller="{viewModel>/controller}" class="sapUiTinyMarginTop"/>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</f:content>
+	</f:DynamicPage>
+</mvc:View>

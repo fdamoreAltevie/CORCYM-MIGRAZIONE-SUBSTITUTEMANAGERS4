@@ -1,0 +1,41 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<ViewSettingsDialog confirm="onFiltersApplyControl" cancel="onFilterCancelControl"
+		resetFilters=".onChangeFilterDateControl(false);onFilterResetControl" filterSearchOperator="Contains">
+		<filterItems>
+			<ViewSettingsFilterItem text="{i18n>approver}" key="ApproverId"
+				items="{ path : 'viewControl>/filterApproverList', sorter : { path : 'ApproverName', descending : false } }">
+				<items>
+					<ViewSettingsItem text="{viewControl>ApproverName}" key="{viewControl>ApproverId}"/>
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="{i18n>workflow}" key="Description"
+				items="{ path : 'viewControl>/filterWorkflowList', sorter : { path : 'Description', descending : false } }">
+				<items>
+					<ViewSettingsItem text="{viewControl>Description}" key="{viewControl>Description}"/>
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsCustomItem text="{i18n>approvalDate}" key="approvalDate">
+				<customControl>
+					<VBox class="sapUiSmallMargin">
+						<f:SimpleForm layout="GridLayout" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" emptySpanXL="4" emptySpanL="4"
+							emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" editable="true">
+							<f:content>
+								<Label text="{i18n>from}"/>
+								<DatePicker dateValue="{viewControl>/startDateFilter}" displayFormat="{viewModel>/dateFormat}" change=".onChangeFilterDateControl(true)"
+									maxDate="{viewModel>/today}"/>
+								<Label text="{i18n>to}"/>
+								<DatePicker dateValue="{viewControl>/endDateFilter}" displayFormat="{viewModel>/dateFormat}" change=".onChangeFilterDateControl(true)"
+									maxDate="{viewModel>/today}"/>
+							</f:content>
+						</f:SimpleForm>
+					</VBox>
+				</customControl>
+			</ViewSettingsCustomItem>
+			<ViewSettingsFilterItem text="{i18n>state}" key="Approved" items="{viewControl>/filterState}">
+				<items>
+					<ViewSettingsItem text="{= ${viewControl>Approved} ? ${i18n>approved} : ${i18n>rejected}}" key="{viewControl>Approved}"/>
+				</items>
+			</ViewSettingsFilterItem>
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

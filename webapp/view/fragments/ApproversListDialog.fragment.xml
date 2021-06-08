@@ -1,0 +1,46 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<TableSelectDialog id="approversListDialogTable" title="{i18n>chooseApprover}" search=".handleSearchApproversDialog"
+		confirm=".handleCloseApproversDialog" cancel=".handleCloseApproversDialog" busy="{viewModel>/loadApprovers}" busyIndicatorDelay="0"
+		items="{ path : 'approversListModel>/', sorter : { path : 'Name', descending : false } }" contentWidth="30%">
+		<columns>
+			<Column>
+				<Text text="{i18n>name}"/>
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem selected="{approversListModel>selected}">
+				<cells>
+					<ObjectIdentifier title="{approversListModel>Name}" text="({approversListModel>Id})"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</TableSelectDialog>
+	<!--<Dialog id="approversListDialogTable" title="{i18n>chooseApprover}" stretch="false" horizontalScrolling="true" verticalScrolling="true">-->
+	<!--	<content>-->
+	<!--		<VBox>-->
+	<!--			<SearchField search=".handleSearchApproversDialog"/>-->
+	<!--			<Table items="{ path : 'approversListModel>/', sorter : { path : 'Name', descending : false } }" width="auto">-->
+	<!--				<headerToolbar>-->
+	<!--					<Toolbar>-->
+	<!--						<ToolbarSpacer/>-->
+	<!--						<Button icon="sap-icon://refresh" type="Transparent" press="onRefreshApproverList"/>-->
+	<!--					</Toolbar>-->
+	<!--				</headerToolbar>-->
+	<!--				<columns>-->
+	<!--					<Column >-->
+	<!--						<Text text="{i18n>name}"/>-->
+	<!--					</Column>-->
+	<!--				</columns>-->
+	<!--				<items>-->
+	<!--					<ColumnListItem type="Active" press=".handleCloseApproversDialog">-->
+	<!--						<cells>-->
+	<!--							<ObjectIdentifier title="{approversListModel>Name}" text="({approversListModel>Id})"/>-->
+	<!--						</cells>-->
+	<!--					</ColumnListItem>-->
+	<!--				</items>-->
+	<!--			</Table>-->
+	<!--		</VBox>-->
+	<!--	</content>-->
+	<!-- sap.ui.core.Control -->
+	<!--</Dialog>-->
+</core:FragmentDefinition>

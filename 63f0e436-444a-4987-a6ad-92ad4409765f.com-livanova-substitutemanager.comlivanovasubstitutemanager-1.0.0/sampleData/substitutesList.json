@@ -1,0 +1,26 @@
+[{
+	"Name": "Roberta Iannaccio",
+	"Id": "1",
+	"ValidFrom": "03.20.2020",
+	"ValidTo": "05.16.2020"
+}, {
+	"Name": "Alvise Zulian",
+	"Id": "2",
+	"ValidFrom": "05.17.2020",
+	"ValidTo": "06.18.2020"
+}, {
+	"Name": "Maria Cristina Saladino",
+	"Id": "3",
+	"ValidFrom": "02.01.2020",
+	"ValidTo": "03.19.2020"
+}, {
+	"Name": "Michele Sabarese",
+	"Id": "4",
+	"ValidFrom": "07.01.2020",
+	"ValidTo": "09.01.2020"
+}, {
+	"Name": "Roberta Iannaccio",
+	"Id": "1",
+	"ValidFrom": "10.01.2020",
+	"ValidTo": "10.31.2020"
+}]
