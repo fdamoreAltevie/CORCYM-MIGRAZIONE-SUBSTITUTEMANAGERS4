@@ -4,14 +4,14 @@ sap.ui.define([
 	"sap/m/MessageToast",
 	"sap/ui/core/UIComponent",
 	"sap/ui/core/routing/History",
-	"substitutemanager/formatters/formatter",
+	"substitutemanager_S4Hana/formatters/formatter",
 	"sap/m/MessageBox",
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator"
 ], function (Controller, JSONModel, MessageToast, UIComponent, History, formatter, MessageBox, Filter, FilterOperator) {
 	"use strict";
 
-	return Controller.extend("substitutemanager.controller.BaseController", {
+	return Controller.extend("substitutemanager_S4Hana.controller.BaseController", {
 		formatter: formatter,
 		onInit: function () {},
 		refreshModels: function () {

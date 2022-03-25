@@ -2,10 +2,10 @@ sap.ui.define(["sap/ui/core/UIComponent",
                 "sap/ui/Device", 
                 "sap/ui/model/json/JSONModel", 
                 "sap/f/FlexibleColumnLayoutSemanticHelper", 
-                "substitutemanager/model/models", 
-                "substitutemanager/controller/BaseController"], function(e, t, s, o, i, a) {
+                "substitutemanager_S4Hana/model/models", 
+                "substitutemanager_S4Hana/controller/BaseController"], function(e, t, s, o, i, a) {
     "use strict";
-    return e.extend("substitutemanager.Component", {
+    return e.extend("substitutemanager_S4Hana.Component", {
         metadata: {
             manifest: "json"
         },
@@ -30,7 +30,7 @@ sap.ui.define(["sap/ui/core/UIComponent",
             this.setSubstitutesAddModel();
             this.setDateFormat();
             this.setModel(i.createDeviceModel(), "device");
-            var d = jQuery.sap.getModulePath("substitutemanager");
+            var d = jQuery.sap.getModulePath("substitutemanager_S4Hana");
             var n = new sap.ui.model.json.JSONModel({
                 path: d
             });
@@ -100,7 +100,7 @@ sap.ui.define(["sap/ui/core/UIComponent",
         },
         createContent: function() {
             return sap.ui.view({
-                viewName: "substitutemanager.view.App",
+                viewName: "substitutemanager_S4Hana.view.App",
                 type: "XML"
             })
         },

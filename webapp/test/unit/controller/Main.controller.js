@@ -1,7 +1,7 @@
 /*global QUnit*/
 
 sap.ui.define([
-	"substitutemanager/controller/Main.controller"
+	"substitutemanager_S4Hana/controller/Main.controller"
 ], function (Controller) {
 	"use strict";
 

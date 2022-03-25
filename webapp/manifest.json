@@ -1,7 +1,7 @@
 {
     "_version": "1.32.0",
     "sap.app": {
-        "id": "substitutemanager",
+        "id": "substitutemanager_S4Hana",
         "type": "application",
         "i18n": "i18n/i18n.properties",
         "applicationVersion": {
@@ -22,12 +22,12 @@
         },
         "crossNavigation": {
             "inbounds": {
-                "substitutemanager-inbound": {
+                "substitutemanager_S4Hana-inbound": {
                     "signature": {
                         "parameters": {},
                         "additionalParameters": "allowed"
                     },
-                    "semanticObject": "substitutemanager",
+                    "semanticObject": "substitutemanager_S4Hana",
                     "action": "display",
                     "title": "Substitute Manager",
                     "subTitle": "",
@@ -61,7 +61,7 @@
         "flexEnabled": false,
         
         "rootView": {
-			"viewName": "substitutemanager.view.App",
+			"viewName": "substitutemanager_S4Hana.view.App",
 			"type": "XML",
 			"async": false,
 			"id": "fcl"
@@ -82,7 +82,7 @@
             "i18n": {
                 "type": "sap.ui.model.resource.ResourceModel",
                 "settings": {
-                    "bundleName": "substitutemanager.i18n.i18n"
+                    "bundleName": "substitutemanager_S4Hana.i18n.i18n"
                 }
             },
             "approversMgmtModel": {
@@ -112,7 +112,7 @@
                 "routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
 				"async": true,
-				"viewPath": "substitutemanager.view",
+				"viewPath": "substitutemanager_S4Hana.view",
 				"controlId": "fcl",
 				"transition": "slide",
                 "bypassed": {}
@@ -150,6 +150,6 @@
     },
     "sap.cloud": {
         "public": true,
-        "service": "substitutemanager"
+        "service": "substitutemanager_S4Hana"
     }
 }

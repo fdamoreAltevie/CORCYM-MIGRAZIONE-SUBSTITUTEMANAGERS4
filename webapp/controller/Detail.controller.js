@@ -2,19 +2,19 @@ sap.ui.define([
 	'jquery.sap.global',
 	"sap/ui/model/json/JSONModel",
 	"./BaseController",
-	"substitutemanager/CustomControls/WorkflowListControl",
+	"substitutemanager_S4Hana/CustomControls/WorkflowListControl",
 	"sap/ui/core/Fragment",
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator"
 ], function (jQuery, JSONModel, Controller, WorkflowListControl, Fragment, Filter, FilterOperator) {
 	"use strict";
 
-	return Controller.extend("substitutemanager.controller.Detail", {
+	return Controller.extend("substitutemanager_S4Hana.controller.Detail", {
 
 		/**
 		 * Called when a controller is instantiated and its View controls (if available) are already created.
 		 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
-		 * @memberOf substitutemanager.view.Detail
+		 * @memberOf substitutemanager_S4Hana.view.Detail
 		 */
 		onInit: function () {
 

@@ -9,7 +9,7 @@ sap.ui.define([
 ], function (JSONModel, Controller, Filter, FilterOperator, Sorter, MessageBox, Fragment) {
 	"use strict";
 
-	return Controller.extend("substitutemanager.controller.Master", {
+	return Controller.extend("substitutemanager_S4Hana.controller.Master", {
 
 		onInit: function () {
 			this.oRouter = this.getOwnerComponent().getRouter();
@@ -69,7 +69,7 @@ sap.ui.define([
 
 		onSort: function (oEvent) {
 			if (!this.popoverSort) {
-				this.popoverSort = sap.ui.xmlfragment("substitutemanager.view.fragments.SorterSubstitutesPopover", this);
+				this.popoverSort = sap.ui.xmlfragment("substitutemanager_S4Hana.view.fragments.SorterSubstitutesPopover", this);
 				this.getView().addDependent(this.popoverSort);
 			}
 
@@ -125,7 +125,7 @@ sap.ui.define([
 		onFilter: function (oEvent) {
 			if (!this.filterDialog) {
 				Fragment.load({
-					name: "substitutemanager.view.fragments.FilterDialog",
+					name: "substitutemanager_S4Hana.view.fragments.FilterDialog",
 					controller: this
 				}).then(function (oDialog) {
 					this.filterDialog = oDialog;
@@ -248,7 +248,7 @@ sap.ui.define([
 				// load asynchronous XML fragment
 				Fragment.load({
 					id: this.getView().getId(),
-					name: "substitutemanager.view.fragments.ApproversListDialog",
+					name: "substitutemanager_S4Hana.view.fragments.ApproversListDialog",
 					controller: this
 				}).then(function (oDialog) {
 					this.getView().addDependent(oDialog);

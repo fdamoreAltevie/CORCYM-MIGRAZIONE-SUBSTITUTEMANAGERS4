@@ -1,5 +1,5 @@
 {
-  "xsappname": "substitutemanager",
+  "xsappname": "substitutemanager_S4Hana",
   "tenant-mode": "dedicated",
   "description": "Security profile of called application",
   "scopes": [

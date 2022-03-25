@@ -1,4 +1,4 @@
-<mvc:View controllerName="substitutemanager.controller.App" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m"
+<mvc:View controllerName="substitutemanager_S4Hana.controller.App" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m"
 	height="100%" xmlns:f="sap.f" xmlns:u="sap.ui.unified">
 	<Shell>
 		<Page showHeader="{device>/system/phone}">

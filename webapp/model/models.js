@@ -1,7 +1,7 @@
 sap.ui.define([
 	"sap/ui/model/json/JSONModel",
 	"sap/ui/Device",
-	"substitutemanager/controller/BaseController"
+	"substitutemanager_S4Hana/controller/BaseController"
 ], function (JSONModel, Device, Controller) {
 	"use strict";
 

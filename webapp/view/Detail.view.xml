@@ -1,6 +1,6 @@
-<mvc:View displayBlock="true" controllerName="substitutemanager.controller.Detail" height="100%" xmlns="sap.uxap"
+<mvc:View displayBlock="true" controllerName="substitutemanager_S4Hana.controller.Detail" height="100%" xmlns="sap.uxap"
 	xmlns:mvc="sap.ui.core.mvc" xmlns:m="sap.m" xmlns:f="sap.f" xmlns:form="sap.ui.layout.form" xmlns:u="sap.ui.unified"
-	xmlns:core="sap.ui.core" xmlns:customControls="substitutemanager.CustomControls">
+	xmlns:core="sap.ui.core" xmlns:customControls="substitutemanager_S4Hana.CustomControls">
 	<ObjectPageLayout id="ObjectPageLayout" showTitleInHeaderContent="true" alwaysShowContentHeader="false" preserveHeaderStateOnScroll="false"
 		headerContentPinnable="true" isChildPage="true" upperCaseAnchorBar="false" visible="{= !${viewModel>/add}}">
 		<headerTitle>

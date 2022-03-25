@@ -1,6 +1,6 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" height="100%" xmlns="sap.m" xmlns:f="sap.f" xmlns:form="sap.ui.layout.form"
-	controllerName="substitutemanager.controller.Master" xmlns:html="http://www.w3.org/1999/xhtml"
-	xmlns:customControls="substitutemanager.CustomControls">
+	controllerName="substitutemanager_S4Hana.controller.Master" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:customControls="substitutemanager_S4Hana.CustomControls">
 	<f:DynamicPage id="dynamicPageId" toggleHeaderOnTitleClick="false">
 		<f:content>
 			<IconTabBar id="idIconTabBar" select="onChangeView" class="sapUiResponsiveContentPadding iconTabText" expanded="true" expandable="false"

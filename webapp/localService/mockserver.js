@@ -7,7 +7,7 @@ sap.ui.define([
     "use strict";
 
     var oMockServer,
-        _sAppPath = "substitutemanager/",
+        _sAppPath = "substitutemanager_S4Hana/",
         _sJsonFilesPath = _sAppPath + "localService/mockdata";
 
     var oMockServerInterface = {

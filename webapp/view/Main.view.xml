@@ -1,5 +1,5 @@
 <mvc:View
-    controllerName="substitutemanager.controller.Main"
+    controllerName="substitutemanager_S4Hana.controller.Main"
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
     xmlns="sap.m"

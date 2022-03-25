@@ -1,7 +1,7 @@
 _schema-version: "3.2"
 ID: substitutemanager_S4Hana
 description: Substitute Manger
-version: 0.0.3
+version: 0.0.2
 modules:
 - name: substitutemanager_S4Hana-dest-content
   type: com.sap.application.content

@@ -4,7 +4,7 @@ sap.ui.define([
 ], function (Controller) {
 	"use strict";
 
-	return Controller.extend("substitutemanager.controller.App", {
+	return Controller.extend("substitutemanager_S4Hana.controller.App", {
 		onInit: function () {
 			this.getOwnerComponent().loadAll(this);
 			this.getOwnerComponent().getModel("viewModel").setProperty("/controller", this);

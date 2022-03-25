@@ -1,6 +1,6 @@
 specVersion: '2.0'
 metadata:
-  name: 'substitutemanager'
+  name: 'substitutemanager_S4Hana'
 type: application
 framework:
   name: SAPUI5
@@ -23,8 +23,8 @@ server:
       ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
       backend:
       - path: /sap
-        url: http://euawssapceq.ad.corcym.com:8001
-        destination: SAP_Gateway
+        url: http://euawssapc4q.ad.corcym.com:44301
+        destination: S4HanaCConsoEndpoint_API
   - name: fiori-tools-appreload
     afterMiddleware: compression
     configuration:

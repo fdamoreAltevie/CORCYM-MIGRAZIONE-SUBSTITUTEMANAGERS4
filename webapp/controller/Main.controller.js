@@ -7,7 +7,7 @@ sap.ui.define([
 	function (Controller) {
 		"use strict";
 
-		return Controller.extend("substitutemanager.controller.Main", {
+		return Controller.extend("substitutemanager_S4Hana.controller.Main", {
 			onInit: function () {
 
 			}

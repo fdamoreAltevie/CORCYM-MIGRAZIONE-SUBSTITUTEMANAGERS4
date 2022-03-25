@@ -5,10 +5,10 @@ sap.ui.define([
 	"sap/ui/core/Fragment",
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator",
-	"substitutemanager/formatters/formatter",
+	"substitutemanager_S4Hana/formatters/formatter",
 	'sap/ui/model/Sorter'
 ], function (XMLComposite, JSONModel, MessageBox, Fragment, Filter, FilterOperator, formatter, Sorter) {
-	return XMLComposite.extend("substitutemanager.CustomControls.WorkflowListControl", {
+	return XMLComposite.extend("substitutemanager_S4Hana.CustomControls.WorkflowListControl", {
 		metadata: {
 			properties: {
 				approverData: {
@@ -248,7 +248,7 @@ sap.ui.define([
 			var approver = this.getApproverData();
 			if (!this.filterDialogWorkflow) {
 				Fragment.load({
-					name: "substitutemanager.view.fragments.FilterDialogWorkflow",
+					name: "substitutemanager_S4Hana.view.fragments.FilterDialogWorkflow",
 					controller: this
 				}).then(function (oDialog) {
 					this.filterDialogWorkflow = oDialog;
@@ -346,7 +346,7 @@ sap.ui.define([
 		onSortControl: function (oEvent) {
 			var controller = this.getController();
 			if (!this.popoverSortWorkflow) {
-				this.popoverSortWorkflow = sap.ui.xmlfragment("substitutemanager.view.fragments.SorterWorkflowPopover",
+				this.popoverSortWorkflow = sap.ui.xmlfragment("substitutemanager_S4Hana.view.fragments.SorterWorkflowPopover",
 					this);
 				this.addDependent(this.popoverSortWorkflow);
 			}

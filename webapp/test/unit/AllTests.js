@@ -1,5 +1,5 @@
 sap.ui.define([
-	"substitutemanager/test/unit/controller/Main.controller"
+	"substitutemanager_S4Hana/test/unit/controller/Main.controller"
 ], function () {
 	"use strict";
 });
